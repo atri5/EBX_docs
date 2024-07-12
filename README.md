@@ -1,4 +1,7 @@
-# Purpose
+#EBX Installation Manual Script
+
+
+## Purpose
 Scrapes a PDF for Tibco EBX documentation, giving step by step guides through the terminal. 
 
 ## Usage:
