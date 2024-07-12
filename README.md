@@ -1,4 +1,4 @@
-#EBX Installation Manual Script
+# EBX Installation Manual Script
 
 
 ## Purpose
