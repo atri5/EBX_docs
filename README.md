@@ -2,10 +2,7 @@
 Scrapes a PDF for Tibco EBX documentation, giving step by step guides through the terminal. 
 
 ## Usage:
-1. Download script, and execute
-```pip install fitz```  
-
-in terminal to install the required dependencies.
+1. Download script, and execute ```pip install fitz```  in terminal to install the required dependencies.
 
 2. Run code through this argument:
 
