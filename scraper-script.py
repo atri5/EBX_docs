@@ -69,7 +69,7 @@ def extract_installation_section(type, pdf_path):
 
         
         print(pdf[index-1:nextindex - 1])
-        inp = input("")
+        inp = input("Please press enter to continue to section " + nextstring + ".")
         cursec += 1
     print("\n")
     curstring = str(c) + "." + str(cursec)
