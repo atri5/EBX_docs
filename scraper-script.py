@@ -22,7 +22,7 @@ def extract_installation_section(type, pdf_path):
     if type == "websphere":
         c = 4
         pattern = re.compile(r'\bChapter 4', re.IGNORECASE)
-
+    pdf = ""
     for page_num in range(pdf_document.page_count):
         page = pdf_document.load_page(page_num)
         text = page.get_text()
@@ -45,11 +45,12 @@ def extract_installation_section(type, pdf_path):
                 num_sections = len(toc_sections)
                 print(f"Number of sections in the table of contents: {num_sections}")
 
-        
+            
             while not exit:
                 page = pdf_document.load_page(page_num)
                 text = page.get_text()
-                print(text)
+                pdf += "\n" + text
+                curr_section = 1
                 if end.search(text):
                     if not pass1:
                         pass1 = True
@@ -57,8 +58,26 @@ def extract_installation_section(type, pdf_path):
                         exit = True
                 page_num += 1
             break
-    else:
-        print(f"{type} Installation section not found in the PDF.")
+    #After pdf is built in python, we can access sections one at a time
+    cursec = 1
+    while cursec < num_sections:
+        curstring = str(c) + "." + str(cursec)
+        nextstring = str(c) + "." + str(cursec + 1)
+        index = pdf.find(curstring)
+        nextindex = pdf.find(nextstring)
+        print("\n")
+
+        
+        print(pdf[index-1:nextindex - 1])
+        inp = input("")
+        cursec += 1
+    print("\n")
+    curstring = str(c) + "." + str(cursec)
+    index = pdf.find(curstring)
+    print(pdf[index:])
+
+
+    # print(pdf)
 
 # Example usage
 
